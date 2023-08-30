@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/styles.css" />
+    <meta http-equiv="X-UA-Compatible" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Homework2 Weather</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>SheCodes Weather App</h1>
+        <h6>Coded by Nataliia Petrychuk SheCodes Plus Alumni</h6>
+        <div id="inner-wrapper">
+            <div class="top">
+                <form class="search_block">
+                    <input type="text" name="text" class="search" placeholder="Search town!" />
+                    <input type="submit" name="submit" class="submit" value="Search" />
+                    <button id="currentLocationButton">Current location</button>
+                </form>
+            </div>
+            <section class="main">
+                <div class="item">
+                    <h4 id="currentMonth">MONTH</h4>
+                    <p id="currentDate">00</p>
+                    <p id="currentYear">YEAR</p>
+                    <p id="formattedDay">DD/MM/YYYY</p>
+                    <p id="currentTime">HH:MM</p>
+                </div>
+                <div class="item">
+                    <h3 id="currentDay">Monday</h3>
+                    <img src="images/weather.jpg" width="" height="" alt="weather" />
+                    <p id="currentWeather">PARTIAL CLOUDNESS</p>
+                    <hr />
+                    <p id="currentTemperature">17&#8451;</p>
+                </div>
+                <div class="item">
+                    <h4 id="currentCitySearch">CITY</h4>
+                    <img src="images/map.jpg" width="" height="" alt="map" />
+                </div>
+            </section>
+            <section class="day">
+                <div class="grid-container">
+                    <div class="col">
+                        <p>TUESDAY</p>
+                        <p>SUNNY</p>
+                        <p>17&#8451;/62F</p>
+                        <img />
+                    </div>
+                    <div class="col">
+                        <p>WEDNESDAY</p>
+                        <p>CLOUDY</p>
+                        <p>17&#8451;/62F</p>
+                        <img />
+                    </div>
+                    <div class="col">
+                        <p>THURSDAY</p>
+                        <p>PARTIAL CLOUDINESS</p>
+                        <p>17&#8451;C/62F</p>
+                        <img />
+                    </div>
+                    <div class="col">
+                        <p>FRIDAY</p>
+                        <p>RAIN</p>
+                        <p>17&#8451;C/62F</p>
+                        <img />
+                    </div>
+                    <div class="col">
+                        <p>SATURDAY</p>
+                        <p>HEAVY RAIN</p>
+                        <p>17&#8451;/62F</p>
+                        <img />
+                    </div>
+                    <div class="col">
+                        <p>SUNDAY</p>
+                        <p>SNOWFALL</p>
+                        <p>17&#8451;/62F</p>
+                        <img />
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="src/weather.js"></script>
+</body>
+
+</html>
