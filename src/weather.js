@@ -66,6 +66,7 @@ currentLocationButton.addEventListener("click", async () => {
 
         updateCurrentCity(weatherData.name, true);
         updateTemperature(weatherData.main.temp);
+        fetchWeatherData(weatherData.name);
       } catch (error) {
         console.error("Error fetching weather data:", error);
       }
@@ -93,7 +94,6 @@ async function fetchWeatherData(city) {
     let weatherData = response.data;
 
     updateTemperature(weatherData.main.temp);
-
     let weatherDescription = weatherData.weather[0].main;
     let weatherDescriptionElement = document.querySelector("#currentWeather");
     weatherDescriptionElement.textContent = weatherDescription;
@@ -109,7 +109,6 @@ function updateTemperature(temp) {
 }
 
 let isCelsius = true;
-
 let temperatureElement = document.querySelector("#currentTemperature");
 
 temperatureElement.addEventListener("click", () => {
@@ -125,18 +124,7 @@ temperatureElement.addEventListener("click", () => {
   isCelsius = !isCelsius;
 });
 
-function showCity(event) {
-  event.preventDefault();
-  let cityInput = document.querySelector(".search");
-  updateCurrentCity(cityInput.value, false);
-  cityInput.value = "";
-
-  fetchWeatherData(cityInput.value);
-}
-
 let searchForm = document.querySelector(".search_block");
-searchForm.addEventListener("submit", showCity);
-
 searchForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
@@ -154,4 +142,10 @@ searchForm.addEventListener("submit", async (event) => {
   } catch (error) {
     console.error("Error fetching weather data:", error);
   }
+});
+
+// click button
+var gitRepoButton = document.getElementById("gitRepoButton");
+gitRepoButton.addEventListener("click", function () {
+  window.open("https://github.com/Petrychuk/weather-app", "_blank");
 });
