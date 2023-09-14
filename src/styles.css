@@ -30,7 +30,7 @@ body {
 input[type="text"] {
   width: 40%;
   padding: 12px 20px;
-  margin: 15px 10px 15px 30px;
+  margin: 15px 10px 15px 65px;
   box-sizing: border-box;
   background-color: #00ada7;
   color: #1a1a1a;
@@ -48,7 +48,8 @@ button {
   border: 1px solid #00ada7;
   border-radius: 10px;
 }
-.currentLocationButton {
+
+#currentLocationButton {
   border-radius: 10px;
 }
 #gitRepoButton {
@@ -128,9 +129,25 @@ h3 {
   text-align: center;
   background-color: #00ada7;
   color: #0c0d0c;
-  border-radius: 20px;
-  width: 400px;
+  border-radius: 10px;
+  width: 350px;
 }
 .col p {
   white-space: normal; /* Allow the text to wrap to multiple lines */
 }
+.col-md-4 {
+  text-align: left;
+  text-shadow: black;
+   line-height: 18px;
+}
+
+.col-md-4 ul {
+   padding-top: 15px;
+   font-weight: 600;
+
+}
+.col-md-4 p {
+  text-align: center;
+  padding-top: 25px;
+  font-weight: 600;
+}  
