@@ -145,7 +145,32 @@ searchForm.addEventListener("submit", async (event) => {
 });
 
 // click button
-var gitRepoButton = document.getElementById("gitRepoButton");
-gitRepoButton.addEventListener("click", function () {
-  window.open("https://github.com/Petrychuk/weather-app", "_blank");
+// var gitRepoButton = document.getElementById("gitRepoButton");
+// gitRepoButton.addEventListener("click", function () {
+//   window.open("https://github.com/Petrychuk/weather-app", "_blank");
+// });
+
+function displayForecast() {
+
+let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun", "Mon"];
+let forecastHtml = "";
+
+days.forEach(function (day) {
+
+forecastHtml = forecastHtml + 
+`
+            <div class="weather-forecast-day">
+                    <div class="weather-forecast-date">${day}</div>
+                    <div class=wether-forecast-icon><img src="https://openweathermap.org/img/wn/50d@2x.png"/></div>
+                    <div class="weather-forecast-temperatures">
+                        <span class="weather-forecast-temperature-max">18</span>
+                        <span class="weather-forecast-temperature-min">12</span>
+                    </div>
+                </div>
+`;
 });
+
+let forecastElement = document.querySelector("#forecast");
+forecastElement.innerHTML = forecastHtml;
+}
+displayForecast();
