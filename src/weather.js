@@ -168,7 +168,7 @@ function getForecast(city) {
 
 }
 
-async function displayForecast(response) {
+function displayForecast(response) {
     console.log(response.data);
 
     let forecastHtml = "";
