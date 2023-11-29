@@ -149,28 +149,63 @@ searchForm.addEventListener("submit", async (event) => {
 // gitRepoButton.addEventListener("click", function () {
 //   window.open("https://github.com/Petrychuk/weather-app", "_blank");
 // });
+// Измененная функция updateCurrentCity
+function updateCurrentCity(city, fromLocation) {
+  let currentCityDisplay = document.querySelector("#currentCitySearch");
+  currentCityDisplay.textContent = city;
 
-function displayForecast() {
-
-let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun", "Mon"];
-let forecastHtml = "";
-
-days.forEach(function (day) {
-
-forecastHtml = forecastHtml + 
-`
-            <div class="weather-forecast-day">
-                    <div class="weather-forecast-date">${day}</div>
-                    <div class=wether-forecast-icon><img src="https://openweathermap.org/img/wn/50d@2x.png"/></div>
-                    <div class="weather-forecast-temperatures">
-                        <span class="weather-forecast-temperature-max">18</span>
-                        <span class="weather-forecast-temperature-min">12</span>
-                    </div>
-                </div>
-`;
-});
-
-let forecastElement = document.querySelector("#forecast");
-forecastElement.innerHTML = forecastHtml;
+  if (!fromLocation) {
+    fetchWeatherData(city);
+  }
+  getForecast(city); // Добавить вызов getForecast здесь
 }
-displayForecast();
+
+function getForecast(city) {
+    let apiKey = "63c3f23c125bto3e4bea128c9007791d";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+    axios(apiUrl).then(displayForecast)
+    console.log(apiUrl);
+
+}
+
+async function displayForecast(response) {
+    console.log(response.data);
+
+    let forecastHtml = "";
+
+    // Массив с названиями дней недели
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+    // Получение текущего дня недели и добавление 1 для начала с завтрашнего дня
+    let currentDayIndex = (new Date()).getDay();
+
+    response.data.daily.slice(0, 6).forEach(function (day, index) {
+        // Вычисление индекса следующего дня
+        let dayOfWeekIndex = (currentDayIndex + index + 1) % 7;
+        let dayOfWeek = days[dayOfWeekIndex];
+
+        // Создание HTML для каждого дня
+        forecastHtml += 
+        `   <div class="col-day">
+            <div class="weather-forecast-day">
+                <div class="weather-forecast-date" style="color:#70f5e8">${dayOfWeek}</div>
+                <div class="weather-forecast-icon">
+                    <img src="${day.condition.icon_url}"/>
+                </div>
+                <div class="weather-forecast-temperatures">
+                    <div class="weather-forecast-temperature" style="color:#70f5e8">
+                    <strong>${Math.round(day.temperature.maximum)}°</strong>
+                    </div>
+                    <div class="weather-forecast-temperature">${Math.round(day.temperature.minimum)}°</div>
+                </div>
+            </div>
+            </div>
+        `;
+    });
+
+    let forecastElement = document.querySelector("#forecast");
+    forecastElement.innerHTML = forecastHtml;
+}
+
+// Вызовите getForecast с нужным городом для получения данных
+getForecast("Paris");

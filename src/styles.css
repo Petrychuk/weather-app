@@ -32,9 +32,9 @@ input[type="text"] {
   padding: 12px 20px;
   margin: 15px 10px 15px 65px;
   box-sizing: border-box;
-  background-color: #00ada7;
+  background-color:#70f5e8;
   color: #1a1a1a;
-  border: 1px solid #00ada7;
+  border: 1px solid #70f5e8;
   border-radius: 10px;
 }
 input[type="submit"],
@@ -43,9 +43,9 @@ button {
   padding: 12px 10px;
   margin: 8px 20px;
   box-sizing: border-box;
-  background-color: #00ada7;
+  background-color: #70f5e8;
   color: #1a1a1a;
-  border: 1px solid #00ada7;
+  border: 1px solid #70f5e8;
   border-radius: 10px;
 }
 
@@ -160,12 +160,13 @@ h3 {
 .weather-forecast {
   margin-top: 20px;
   text-align: center;
-  color: #00ada7;
+  color: #70f5e8;
+  
 } 
 .weather-forecast-date {
   font-size: 35px;
   opacity: 0.5;
-  
+  color:#70f5e8;
 }
 .weather-forecast-temperature-min {
  opacity: 0.5; 
@@ -174,4 +175,10 @@ h3 {
 .weather-forecast-temperature {
   font-size: 35px;
   color: #00ada7;
+}
+
+.col-day {
+  border: #70f5e8 1px solid;
+  margin: 0 10px;
+  border-radius: 10px;
 }
